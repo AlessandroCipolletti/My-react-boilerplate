@@ -18,7 +18,9 @@ describe('{{ camelCase name }}Reducer', () => {
   })
 
   it('should handle the defaultAction action correctly', () => {
-    const expectedResult = produce(state, draft => draft)
+    const expectedResult = produce(state, draft => {
+      draft.key = 'newValue'
+    })
     expect({{ camelCase name }}Reducer(state, defaultAction())).toEqual(expectedResult)
   })
 })

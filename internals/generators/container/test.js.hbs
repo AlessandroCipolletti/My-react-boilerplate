@@ -8,8 +8,9 @@
 
 import React from 'react'
 import { render } from 'react-testing-library'
-import { Provider, connect } from 'react-redux'
+import { Provider } from 'react-redux'
 import { createMemoryHistory } from 'history'
+import { compose } from 'redux'
 {{#if wantMessages}}
 import { IntlProvider, injectIntl } from 'react-intl'
 {{/if}}
@@ -19,7 +20,6 @@ import { IntlProvider, injectIntl } from 'react-intl'
 import { ThemeProvider } from 'styled-components'
 import Theme from 'common/Theme'
 
-import history from 'utils/history'
 import configureStore from 'utils/configureStore'
 
 import {{ properCase name }}, { withConnect } from '../index'
@@ -29,13 +29,14 @@ import { DEFAULT_LOCALE } from '../../../utils/i18n'
 {{/if}}
 
 describe('<{{ properCase name }} />', () => {
+  const history = createMemoryHistory()
   const store = configureStore({}, history)
 
 {{#if wantMessages}}
   const ComponentWithCompose = compose(
     withConnect,
     injectIntl,
-  )({{ properCase name }})Provider>
+  )({{ properCase name }})
 {{else}}
   const ComponentWithCompose = compose(
     withConnect,
@@ -44,8 +45,8 @@ describe('<{{ properCase name }} />', () => {
 
 const renderComponent = (Component, props = {}) => (
   render(
-{{if wantActionsAndReducer}}
-{{if wantMessages}}
+{{#if wantActionsAndReducer}}
+{{#if wantMessages}}
     <IntlProvider locale={DEFAULT_LOCALE}>
       <Provider store={store}>
         <ThemeProvider theme={Theme}>
@@ -61,7 +62,7 @@ const renderComponent = (Component, props = {}) => (
     </Provider>,
 {{/if}}
 {{else}}
-{{if wantMessages}}
+{{#if wantMessages}}
     <IntlProvider locale={DEFAULT_LOCALE}>
       <ThemeProvider theme={Theme}>
         <ComponentWithCompose {...props} />

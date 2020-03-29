@@ -16,12 +16,13 @@ import { createStructuredSelector } from 'reselect'
 {{/if}}
 import { compose } from 'redux'
 
-import { defaultAction } from './actions'
 {{#if wantSaga}}
 import { useInjectSaga } from 'utils/injectSaga'
 {{/if}}
 {{#if wantActionsAndReducer}}
 import { useInjectReducer } from 'utils/injectReducer'
+
+import { defaultAction } from './actions'
 import makeSelect{{properCase name}} from './selectors'
 import reducer from './reducer'
 {{/if}}
