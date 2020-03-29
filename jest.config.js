@@ -1,9 +1,5 @@
 module.exports = {
   collectCoverageFrom: [
-    'app/i18n.js',
-    'app/configureStore.js',
-    'app/utils/*.js',
-
     '!app/common/utils/images.js',
     '!app/common/TU/*.{js,jsx}',
     '!app/**/*.test.{js,jsx}',

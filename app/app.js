@@ -24,14 +24,14 @@ import LanguageProvider from 'containers/LanguageProvider'
 
 // Load the favicon and the .htaccess file
 /* eslint-disable import/no-unresolved, import/extensions */
-import '!file-loader?name=[name].[ext]!./images/favicon.ico'
+import '!file-loader?name=[name].[ext]!./medias/images/favicon.ico'
 import 'file-loader?name=.htaccess!./.htaccess'
 /* eslint-enable import/no-unresolved, import/extensions */
 
-import configureStore from './configureStore'
+import configureStore from 'utils/configureStore'
 
 // Import i18n messages
-import { translationMessages } from './i18n'
+import { translationMessages } from 'utils/i18n'
 
 // Create redux store with history
 const initialState = {}
@@ -55,7 +55,7 @@ if (module.hot) {
   // Hot reloadable React components and translation json files
   // modules.hot.accept does not accept dynamic dependencies,
   // have to be constants at compile-time
-  module.hot.accept(['./i18n', 'containers/App'], () => {
+  module.hot.accept(['./utils/i18n', 'containers/App'], () => {
     ReactDOM.unmountComponentAtNode(MOUNT_NODE)
     render(translationMessages)
   })
