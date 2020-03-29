@@ -1,22 +1,21 @@
-import { createSelector } from 'reselect';
-import { initialState } from './reducer';
+import { createSelector } from 'reselect'
+import { initialState } from './reducer'
 
-/**
- * Direct selector to the {{ camelCase name }} state domain
- */
-
-const select{{ properCase name }}Domain = state => state.{{ camelCase name }} || initialState;
-
-/**
- * Other specific selectors
- */
-
-/**
- * Default selector used by {{ properCase name }}
- */
+const select{{ properCase name }}Domain = state => state.{{ camelCase name }} || initialState
 
 const makeSelect{{ properCase name }} = () =>
-  createSelector(select{{ properCase name }}Domain, substate => substate);
+  createSelector(select{{ properCase name }}Domain, substate => substate)
+  
 
-export default makeSelect{{ properCase name }};
-export { select{{ properCase name }}Domain };
+const makeSelect{{ properCase name }}Key = () =>
+  createSelector(
+    select{{ properCase name }}Domain,
+    {{ camelCase name }}State => {{ camelCase name }}State.key,
+  )
+
+
+export default makeSelect{{ properCase name }}
+export {
+  makeSelect{{ properCase name }}Key,
+  select{{ properCase name }}Domain,
+}

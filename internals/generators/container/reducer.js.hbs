@@ -1,20 +1,21 @@
-/*
- *
- * {{ properCase name }} reducer
- *
- */
-import produce from 'immer';
-import { DEFAULT_ACTION } from './constants';
+import produce from 'immer'
+import { DEFAULT_ACTION } from './constants'
 
-export const initialState = {};
+export const initialState = {
+  key: 'value',
+}
 
-/* eslint-disable default-case, no-param-reassign */
+/* eslint-disable default-case, no-param-reassign, consistent-return */
 const {{ camelCase name }}Reducer = (state = initialState, action) =>
-  produce(state, (/* draft */) => {
+  produce(state, draft) => {
     switch (action.type) {
       case DEFAULT_ACTION:
-        break;
-    }
-  });
+        draft.key = 'newValue'
+        break
 
-export default {{ camelCase name }}Reducer;
+      default:
+        return draft
+    }
+  })
+
+export default {{ camelCase name }}Reducer
