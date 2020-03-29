@@ -1,10 +1,11 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   html,
   body {
     height: 100%;
     width: 100%;
+    margin: 0px;
   }
 
   body {
@@ -26,6 +27,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
   }
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle
