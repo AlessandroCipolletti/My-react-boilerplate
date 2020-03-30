@@ -14,11 +14,11 @@
   <dd>Jest the way I like it</dd>
 
   <dt>Typescript support</td>
-
+</dl>
 
 ## Added Typescript support
 
-```
+```javascript
 // types for react libs
 npm i --save-dev @types/react @types/react-dom @types/react-redux @types/react-router-dom
 
