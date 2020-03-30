@@ -20,12 +20,17 @@ module.exports = options => ({
   module: {
     rules: [
       {
-        test: /\.(js|jsx|ts|tsx)$/, // Transform all .js and .jsx files required somewhere with Babel
+        test: /\.(js|jsx)$/, // Transform all .js and .jsx files required somewhere with Babel
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: options.babelQuery,
         },
+      },
+      {
+        test: /\.(ts|tsx)$/, // Transform all .ts and .tsx files required somewhere with awesome-typescript-loader
+        exclude: /node_modules/,
+        use: 'awesome-typescript-loader',
       },
       {
         // Preprocess our own .css files

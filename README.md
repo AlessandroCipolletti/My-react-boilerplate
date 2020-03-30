@@ -31,10 +31,8 @@ npm i --save-dev typescript
 // install babel typescript preset
 npm i --save-dev @babel/preset-typescript
 
-// add typescript preset in babel.config.js
-presets: [
-  '@babel/preset-typescript',
-]
+// install webpack typescript loader
+npm i --save-dev awesome-typescript-loader
 
 // webpack.base.babel.js config
 resolve: {
@@ -43,12 +41,17 @@ resolve: {
 module: {
   rules: [
     {
-      test: /\.(js|jsx|ts|tsx)$/, // Transform all .js and .jsx files required somewhere with Babel
+      test: /\.(js|jsx)$/, // Transform all .js and .jsx files required somewhere with Babel
       exclude: /node_modules/,
       use: {
         loader: 'babel-loader',
         options: options.babelQuery,
       },
+    },
+    {
+      test: /\.(ts|tsx)$/, // Transform all .ts and .tsx files required somewhere with awesome-typescript-loader
+      exclude: /node_modules/,
+      use: 'awesome-typescript-loader',
     },
 ```
 ## License
