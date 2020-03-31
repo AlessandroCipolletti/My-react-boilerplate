@@ -30,7 +30,7 @@ module.exports = options => ({
       {
         test: /\.(ts|tsx)$/, // Transform all .ts and .tsx files required somewhere with awesome-typescript-loader
         exclude: /node_modules/,
-        use: 'awesome-typescript-loader',
+        use: ['babel-loader', 'ts-loader'],
       },
       {
         // Preprocess our own .css files

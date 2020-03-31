@@ -2,7 +2,7 @@
 
 <dl>
   <dt>React Boilerplate</dt>
-  <dd>All the good stuff from <a href="https://github.com/react-boilerplate/react-boilerplate">React Boilerplate</a>. Many thanks to its contributors.</dd>
+  <dd>All the good stuff from <a href="https://github.com/react-boilerplate/react-boilerplate">React Boilerplate</a>. Many thanks to all its contributors.</dd>
 
   <dt>Common Folder</dt>
   <dd>Because I like it. I moved some files to app/utils too.</dd>
